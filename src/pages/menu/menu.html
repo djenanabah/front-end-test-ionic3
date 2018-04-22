@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>CHOISISSEZ VOS PRODUITS</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+      <ion-searchbar placeholder="Search" [(ngModel)]="queryText" (ionInput)="updateTeams()"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="products-list">
+    <ion-item-group *ngFor="let categorie of categories">
+      <ion-item-divider color="categorie">
+        <h2>{{categorie.name}}</h2>
+      </ion-item-divider>
+      <ion-list ion-item *ngFor="let product of categorie.products" >
+        <ion-row>
+          <ion-col col-2>
+            <img src="{{product.image}}">
+          </ion-col>
+          <ion-col col-5>
+              <h3>{{product.name}}</h3>
+              <p>{{product.price | number : '1.2'}}€</p>
+          </ion-col>
+          <ion-col col-2 >
+            <button ion-button icon-only  *ngIf="product.quantity" (click)="removeProductToCart($event, product)">
+              <ion-icon name="remove"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-1 *ngIf="product.quantity">
+            <p>{{product.quantity}}</p>
+          </ion-col>
+          <ion-col col-2 align-self: flex-end>
+            <button ion-button icon-only (click)="addProductToCart($event, product)">
+                <ion-icon name="add"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="products.length">
+    <ion-toolbar position="bottom">
+      <button ion-button full>
+        <ion-row>
+            <ion-col>VALIDER</ion-col>
+            <ion-col>{{totalPrice | number : '1.2'}}€</ion-col>
+        </ion-row>
+      </button>
+    </ion-toolbar>
+</ion-footer>
