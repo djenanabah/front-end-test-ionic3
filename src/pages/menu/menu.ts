@@ -75,7 +75,7 @@ export class MenuPage {
   addProductToCart($event, product){
     let price = product.price;
     if (product.tva && product.tva > 0){
-      price += + (product.price / product.tva);
+      price += (product.price / product.tva);
     }
     this.totalPrice += price;
     product.quantity += 1;
@@ -98,7 +98,7 @@ export class MenuPage {
     }
     let price = product.price;
     if (product.tva > 0){
-      price += + (product.price / product.tva);
+      price += (product.price / product.tva);
     }
     product.quantity -= 1;
     this.totalPrice -= price;

@@ -3,4 +3,21 @@ page-menu {
         overflow-y: scroll;
         max-height: 95%;
     }
+
+    .button.add-remove ion-icon {
+        font-size: 95%;
+    }
+    
+    .button.add-remove {
+        max-width: 95%;
+        max-height: 60%;
+        position: relative;
+        left: 55%;
+    }
+    
+    .div#product_quantity {
+        position: absolute;
+        left: 55%;
+    }
+
 }
