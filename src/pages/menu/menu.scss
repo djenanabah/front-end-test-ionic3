@@ -4,20 +4,48 @@ page-menu {
         max-height: 95%;
     }
 
+    .ion-item-group{
+        padding: 0;
+    }
     .button.add-remove ion-icon {
         font-size: 95%;
+        color: black;
+        background: transparent;
     }
     
-    .button.add-remove {
-        max-width: 95%;
-        max-height: 60%;
-        position: relative;
-        left: 55%;
-    }
-    
-    .div#product_quantity {
-        position: absolute;
-        left: 55%;
+    .add-remove {
+        background: map-get($map: $colors, $key: categorie);
+        border-radius: 3px;
+        font-size: 90%;
     }
 
+    .ion-list.grid-full{
+        padding: 0;
+    }
+
+    .grid-full ion-row {
+        display: flex;
+        padding: 0;
+      }
+
+    .remove-cell{
+        align-self: center;
+    }
+    
+    .quantity-cell{
+        text-align: center;
+        align-self: center;
+    }
+
+    .add-cell{
+        align-self: center;
+        padding: 0;
+    }
+
+    .cell-select{
+        background-color: map-get($map: $colors, $key: primary);
+        padding: 0;
+        left: 0;
+        width: 10px;
+    }
 }

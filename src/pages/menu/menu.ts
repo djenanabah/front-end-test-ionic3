@@ -21,6 +21,7 @@ export class MenuPage {
 
   ionViewDidLoad() {
 
+
     let loading = this.loadingController.create({
       content: 'Chargement du contenu...'
     });

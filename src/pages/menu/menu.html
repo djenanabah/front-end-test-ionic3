@@ -13,26 +13,29 @@
       <ion-item-divider color="categorie">
         <h2>{{categorie.name}}</h2>
       </ion-item-divider>
-      <ion-list ion-item *ngFor="let product of categorie.products" >
+      <ion-list class="grid-full" ion-item *ngFor="let product of categorie.products" >
         <ion-row>
+          <ion-col col-1 class="cell-select" *ngIf="product.quantity">
+
+          </ion-col>
           <ion-col col-2>
             <img src="{{product.image}}">
           </ion-col>
-          <ion-col col-5>
+          <ion-col col-6>
               <h3>{{product.name}}</h3>
               <p *ngIf="product.tva">{{product.price + (product.price / product.tva) | number : '1.2'}}€</p>
               <p *ngIf="!product.tva">{{product.price | number : '1.2'}}€</p>
           </ion-col>
-          <ion-col col-2 >
-            <button id="remove_product" ion-button icon-only class="add-remove"  *ngIf="product.quantity" (click)="removeProductToCart($event, product)">
+          <ion-col col-1 class="remove-cell">
+            <button id="remove_product" class="add-remove"  *ngIf="product.quantity" (click)="removeProductToCart($event, product)">
               <ion-icon name="remove"></ion-icon>
             </button>
           </ion-col>
-          <ion-col col-1 *ngIf="product.quantity">
-            <div id="product_quantity">{{product.quantity}}</div>
+          <ion-col col-1 class="quantity-cell">
+            <p id="product_quantity" *ngIf="product.quantity">{{product.quantity}}</p>
           </ion-col>
-          <ion-col col-2 align-self: flex-end>
-            <button  id="add_product" ion-button icon-only class="add-remove" (click)="addProductToCart($event, product)">
+          <ion-col col-1 class="add-cell" >
+            <button  id="add_product" class="add-remove" (click)="addProductToCart($event, product)">
                 <ion-icon name="add"></ion-icon>
               </button>
           </ion-col>
@@ -52,3 +55,4 @@
       </button>
     </ion-toolbar>
 </ion-footer>
+<!-- align-self: flex-end -->
