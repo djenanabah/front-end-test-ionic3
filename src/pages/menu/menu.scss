@@ -5,8 +5,9 @@ page-menu {
     }
 
     .ion-item-group{
-        padding: 0;
+        padding-left: 0!important;
     }
+
     .button.add-remove ion-icon {
         font-size: 95%;
         color: black;
@@ -25,8 +26,12 @@ page-menu {
 
     .grid-full ion-row {
         display: flex;
-        padding: 0;
-      }
+        padding: 0!important;
+    }
+
+    .grid-full {
+        padding: 0!important;
+    }
 
     .remove-cell{
         align-self: center;
@@ -40,12 +45,5 @@ page-menu {
     .add-cell{
         align-self: center;
         padding: 0;
-    }
-
-    .cell-select{
-        background-color: map-get($map: $colors, $key: primary);
-        padding: 0;
-        left: 0;
-        width: 10px;
     }
 }
